@@ -1,4 +1,5 @@
 # 顶级自动化分流配置 - 解决客户端节点渲染丢失 Bug
+# profile-name: Taobe's Custom Config
 port: 7890
 socks-port: 7891
 allow-lan: true
