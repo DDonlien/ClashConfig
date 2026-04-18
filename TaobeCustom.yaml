@@ -10,7 +10,7 @@ external-controller: '127.0.0.1:9090'
 
 # 1. 订阅资源
 proxy-providers:
-  sealos:
+  sub99:
     type: http
     url: "https://ycexbktkoctx.sealosgzg.site/api/sub/3013ec5f494f77a2697b4ae5f9c335d4"
     interval: 3600
@@ -22,7 +22,7 @@ proxy-providers:
     interval: 3600
     path: ./sub2.yaml
     health-check: {enable: true, interval: 600, url: "http://www.gstatic.com/generate_204"}
-  sealos_ss:
+  flybit:
     type: http
     url: "https://rutnzgnkphxs.sealosgzg.site/api/v1/ss/8e49417b63c00fd37c6b6471ae0c29c8"
     interval: 3600
@@ -36,8 +36,8 @@ proxy-groups:
     type: select
     proxies:
       - ⚡ 全局自动
-      - 📦 Sealos 订阅
-      - 📦 Sealos SS 订阅
+      - 📦 99 订阅
+      - 📦 Flybit 订阅
       - 📦 Biubiu 订阅
       - 🇭🇰 香港地区
       - 🇯🇵 日本地区
@@ -50,42 +50,42 @@ proxy-groups:
   - name: ⚡ 全局自动
     type: url-test
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   # --- 按订阅分组：组内可手动选节点，也可先走该订阅自动测速 ---
-  - name: 📦 Sealos 订阅
+  - name: 📦 99 订阅
     type: select
     proxies:
-      - ⚡ Sealos 自动
+      - ⚡ 99 自动
     use:
-      - sealos
+      - sub99
 
-  - name: ⚡ Sealos 自动
+  - name: ⚡ 99 自动
     type: url-test
     hidden: true
     use:
-      - sealos
+      - sub99
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: 📦 Sealos SS 订阅
+  - name: 📦 Flybit 订阅
     type: select
     proxies:
-      - ⚡ Sealos SS 自动
+      - ⚡ Flybit 自动
     use:
-      - sealos_ss
+      - flybit
 
-  - name: ⚡ Sealos SS 自动
+  - name: ⚡ Flybit 自动
     type: url-test
     hidden: true
     use:
-      - sealos_ss
+      - flybit
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -113,8 +113,8 @@ proxy-groups:
       - 🇭🇰 香港-自动测速
       - DIRECT
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(香港|\bHK\b|HKG|Hong[ -]?Kong|HKBN|HKT)'
 
@@ -122,8 +122,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(香港|\bHK\b|HKG|Hong[ -]?Kong|HKBN|HKT)'
     url: http://www.gstatic.com/generate_204
@@ -135,8 +135,8 @@ proxy-groups:
       - 🇯🇵 日本-自动测速
       - DIRECT
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(日本|\bJP\b|JPN|Japan|Tokyo|Osaka|东京|大阪)'
 
@@ -144,8 +144,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(日本|\bJP\b|JPN|Japan|Tokyo|Osaka|东京|大阪)'
     url: http://www.gstatic.com/generate_204
@@ -157,8 +157,8 @@ proxy-groups:
       - 🇺🇸 美国-自动测速
       - DIRECT
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(美国|\bUS\b|USA|United States|America|New York|Los Angeles|San Jose|Seattle|Dallas|Chicago|Ashburn|Silicon Valley|Fremont|Phoenix)'
 
@@ -166,8 +166,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(美国|\bUS\b|USA|United States|America|New York|Los Angeles|San Jose|Seattle|Dallas|Chicago|Ashburn|Silicon Valley|Fremont|Phoenix)'
     url: http://www.gstatic.com/generate_204
@@ -179,8 +179,8 @@ proxy-groups:
       - 🇸🇬 新加坡-自动测速
       - DIRECT
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(新加坡|\bSG\b|SGP|Singapore|SIN|狮城)'
 
@@ -188,8 +188,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use: 
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(新加坡|\bSG\b|SGP|Singapore|SIN|狮城)'
     url: http://www.gstatic.com/generate_204
@@ -201,8 +201,8 @@ proxy-groups:
       - 🇹🇼 台湾-自动测速
       - DIRECT
     use:
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(台湾|台灣|\bTW\b|TWN|Taiwan|Taipei|台北|新北|Taichung)'
 
@@ -210,8 +210,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use:
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(台湾|台灣|\bTW\b|TWN|Taiwan|Taipei|台北|新北|Taichung)'
     url: http://www.gstatic.com/generate_204
@@ -223,8 +223,8 @@ proxy-groups:
       - 🇰🇷 韩国-自动测速
       - DIRECT
     use:
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(韩国|韓國|\bKR\b|KOR|Korea|Seoul|首尔|首爾|Busan|釜山)'
 
@@ -232,8 +232,8 @@ proxy-groups:
     type: url-test
     hidden: true
     use:
-      - sealos
-      - sealos_ss
+      - sub99
+      - flybit
       - biubiu
     filter: '(?i)(韩国|韓國|\bKR\b|KOR|Korea|Seoul|首尔|首爾|Busan|釜山)'
     url: http://www.gstatic.com/generate_204
