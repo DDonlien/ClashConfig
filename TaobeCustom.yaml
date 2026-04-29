@@ -16,12 +16,6 @@ proxy-providers:
     interval: 3600
     path: ./sub1.yaml
     health-check: {enable: true, interval: 600, url: "http://www.gstatic.com/generate_204"}
-  biubiu:
-    type: http
-    url: "https://eue-l8br0hnh515w.api-biubiu.sbs/biu/subscribe?token=1afb7d7634bde00f2fe6716cfb77722c"
-    interval: 3600
-    path: ./sub2.yaml
-    health-check: {enable: true, interval: 600, url: "http://www.gstatic.com/generate_204"}
   flybit:
     type: http
     url: "https://rutnzgnkphxs.sealosgzg.site/api/v1/ss/8e49417b63c00fd37c6b6471ae0c29c8"
@@ -44,7 +38,6 @@ proxy-groups:
       - ⚡ 全局自动
       - 📦 99 订阅
       - 📦 Flybit 订阅
-      - 📦 Biubiu 订阅
       - 📦 SPKUN 订阅
       - 🇭🇰 香港地区
       - 🇯🇵 日本地区
@@ -59,7 +52,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -98,22 +90,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 📦 Biubiu 订阅
-    type: select
-    proxies:
-      - ⚡ Biubiu 自动
-    use:
-      - biubiu
-
-  - name: ⚡ Biubiu 自动
-    type: url-test
-    hidden: true
-    use:
-      - biubiu
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: 📦 SPKUN 订阅
     type: select
     proxies:
@@ -139,7 +115,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(香港|\bHK\b|HKG|Hong[ -]?Kong|HKBN|HKT)'
 
@@ -149,7 +124,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(香港|\bHK\b|HKG|Hong[ -]?Kong|HKBN|HKT)'
     url: http://www.gstatic.com/generate_204
@@ -163,7 +137,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(日本|\bJP\b|JPN|Japan|Tokyo|Osaka|东京|大阪)'
 
@@ -173,7 +146,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(日本|\bJP\b|JPN|Japan|Tokyo|Osaka|东京|大阪)'
     url: http://www.gstatic.com/generate_204
@@ -187,7 +159,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(美国|\bUS\b|USA|United States|America|New York|Los Angeles|San Jose|Seattle|Dallas|Chicago|Ashburn|Silicon Valley|Fremont|Phoenix)'
 
@@ -197,7 +168,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(美国|\bUS\b|USA|United States|America|New York|Los Angeles|San Jose|Seattle|Dallas|Chicago|Ashburn|Silicon Valley|Fremont|Phoenix)'
     url: http://www.gstatic.com/generate_204
@@ -211,7 +181,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(新加坡|\bSG\b|SGP|Singapore|SIN|狮城)'
 
@@ -221,7 +190,6 @@ proxy-groups:
     use: 
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(新加坡|\bSG\b|SGP|Singapore|SIN|狮城)'
     url: http://www.gstatic.com/generate_204
@@ -235,7 +203,6 @@ proxy-groups:
     use:
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(台湾|台灣|\bTW\b|TWN|Taiwan|Taipei|台北|新北|Taichung)'
 
@@ -245,7 +212,6 @@ proxy-groups:
     use:
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(台湾|台灣|\bTW\b|TWN|Taiwan|Taipei|台北|新北|Taichung)'
     url: http://www.gstatic.com/generate_204
@@ -259,7 +225,6 @@ proxy-groups:
     use:
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(韩国|韓國|\bKR\b|KOR|Korea|Seoul|首尔|首爾|Busan|釜山)'
 
@@ -269,7 +234,6 @@ proxy-groups:
     use:
       - sub99
       - flybit
-      - biubiu
       - spkun
     filter: '(?i)(韩国|韓國|\bKR\b|KOR|Korea|Seoul|首尔|首爾|Busan|釜山)'
     url: http://www.gstatic.com/generate_204
