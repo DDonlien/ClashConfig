@@ -1,5 +1,6 @@
-# 顶级自动化分流配置 - 解决客户端节点渲染丢失 Bug
-# profile-name: Taobe's Custom Config
+# profile-name: taobe-clash-config
+# 订阅链接（国内可访问转发）：
+  # https://cdn.jsdelivr.net/gh/DDonlien/clash-config@main/taobe-clash-config.yaml
 port: 7890
 socks-port: 7891
 allow-lan: true
@@ -290,6 +291,16 @@ proxy-groups:
       - 🇺🇸 美国地区
       - 🚀 节点选择
 
+  - name: 🎯 Steam
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 香港地区
+      - 🇯🇵 日本地区
+      - 🇸🇬 新加坡地区
+      - 🇺🇸 美国地区
+      - 🚀 节点选择
+
   - name: GLOBAL
     type: select
     proxies:
@@ -306,6 +317,15 @@ rules:
   - DOMAIN-SUFFIX,twinmotion.com,🎮 Epic & UE
   - DOMAIN-SUFFIX,fortnite.com,🎮 Epic & UE
   - DOMAIN-KEYWORD,epicgames,🎮 Epic & UE
+
+  # --- Steam ---
+  - DOMAIN-SUFFIX,steampowered.com,🎯 Steam
+  - DOMAIN-SUFFIX,steamcontent.com,🎯 Steam
+  - DOMAIN-SUFFIX,steamgames.com,🎯 Steam
+  - DOMAIN-SUFFIX,steamusercontent.com,🎯 Steam
+  - DOMAIN-SUFFIX,steamstatic.com,🎯 Steam
+  - DOMAIN-SUFFIX,steamcdn.com,🎯 Steam
+  - DOMAIN-KEYWORD,steam,🎯 Steam
 
   # --- Apple ---
   - DOMAIN-SUFFIX,itunes.apple.com,📺 Apple TV 服务
